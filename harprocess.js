@@ -1,10 +1,12 @@
 function saveFile(e) {
     if (results != ""){
-    saveData(results, document.getElementById('fileinput').value);
+    var name = document.getElementById('fileinput').value;
+    var res = name.concat('.txt');
+    saveData(results, res);
     
     e.preventDefault()}
     else {
-      alert("Please load a file before clicking 'Save'")
+      alert("Please Process the file before clicking 'Save'")
     }
   }    
   
@@ -87,7 +89,7 @@ function saveFile(e) {
   
       else if (!input.files[0])
           {
-            alert("Please select a file before clicking 'Load'");
+            alert("Please select a file before clicking 'Process'");
         }
   
          else   {
