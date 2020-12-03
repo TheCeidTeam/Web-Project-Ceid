@@ -20,30 +20,7 @@ header {
     
   
   }
-form{
-    position: relative;
-    margin: auto;
-    width: 50%;  
-  
-    padding: 150px;
-    font-family: sans-serif !important;
-    overflow: hidden;
 
-}
-
-#fileinput{
-  position: absolute;
-  margin-right: 2.5em;
-
-}
-
-
-.btns{
-  position: absolute;
-  right:    0;
-bottom:   0;
- 
-}
 
 .text{
   position: relative;
