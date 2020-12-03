@@ -36,3 +36,17 @@ header {
  
 }
 
+#btnProcess{
+  background-color: #f16051;
+  color: white;
+  border-radius: 4px;
+  font-size: 20px;
+}
+
+#btnSave{
+  background-color: #f16051;
+  color: white;
+  border-radius: 4px;
+  font-size: 20px;
+}
+

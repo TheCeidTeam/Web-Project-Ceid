@@ -1,3 +1,9 @@
+function hide(){
+  var x = document.getElementById('btnsave');
+                  x.style.display = 'none';
+}
+
+
 function saveFile(e) {
     if (results != ""){
     var name = document.getElementById('fileinput').value;
