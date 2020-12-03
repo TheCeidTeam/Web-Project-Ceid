@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Επεξεργασία HAR</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/har-process.css">
+</head>
+<body>
+  <header>
+    <h1>Αρχείο HAR</h1>
+  </header>
+  <nav>
+  <div class="text">
+    Παρακαλούμε επιλέξτε το αρχείο .har που θέλετε επεξεργαστείτε πατώντας εδώ:      <input type='file' id='fileinput' accept=".har">.
+    <br><br>Το αρχείο περιέχει ευαίσθητα δεδομένα. Αν επιθυμείτε να συνεχίσετε πρέπει να πατήσετε <input type='button' id='btnProcess' 
+    value='Process' onclick='ProcFile();'>.
+    <div id="btnsave" class="btnsave">
+      <br> Για αποθήκευση του αρχείου τοπικά, πατήστε εδώ: <input type='button' id='btnSave' value='Save' onclick='saveFile();'>
+    </div>
+
+  </div>
+  
+  <script src="js/harprocess.js" type="text/javascript"> </script>
+  </nav>
+</body>
+</html>
