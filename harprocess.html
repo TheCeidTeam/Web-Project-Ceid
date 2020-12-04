@@ -14,15 +14,26 @@
   <div class="text">
     Παρακαλούμε επιλέξτε το αρχείο .har που θέλετε επεξεργαστείτε πατώντας εδώ:      <input type='file' id='fileinput' accept=".har"
      onclick="hide();">.
-    <br><br>Το αρχείο περιέχει ευαίσθητα δεδομένα. Αν επιθυμείτε να συνεχίσετε πρέπει να πατήσετε <input type='button' id='btnProcess' 
-    value='Process' onclick='ProcFile();'>.
+    <br><br>Το αρχείο περιέχει <a href='#bot'> ευαίσθητα δεδομένα</a>. Αν επιθυμείτε να συνεχίσετε πρέπει να πατήσετε <input type='button' id='btnProcess' 
+    value='Επεξεργασία' onclick='ProcFile();'>.
     <div id="btnsave" class="btnsave">
-      <br> Για αποθήκευση του αρχείου τοπικά, πατήστε εδώ: <input type='button' id='btnSave' value='Save' onclick='saveFile();'>
+      <br> Για αποθήκευση του αρχείου τοπικά, πατήστε εδώ: <input type='button' id='btnSave' value='Αποθήκευση' onclick='saveFile();'>.
+      <br><br> Για να ανεβάσετε το αρχείο στο σύστημα συνεχίστε πατώντας  <input type='button' id='btnUpload'value='Μεταφόρτωση'>.
     </div>
 
   </div>
   
   <script src="js/harprocess.js" type="text/javascript"> </script>
   </nav>
+
+  <footer>
+    <p id='bot'>Τα HAR αρχεία περιέχουν ευαίσθητα δεδομένα!</p>
+    <ul>
+      <li>περιεχόμενο των σελίδων που κατεβάσατε κατά την καταγραφή.</li>
+      <li>τα αρχεία cookies σας, τα οποία επιτρέπουν σε οποιονδήποτε έχει πρόσβαση στο αρχείο HAR να εκμεταλεύεται τον λογαριασμό σας.</li>
+      <li>όλες τις πληροφορίες που υποβάλατε κατά την εγγραφή: προσωπικά στοιχεία, κωδικοί πρόσβασης, αριθμοί πιστωτικών καρτών ...</li>
+    </ul>
+  </footer>
+
 </body>
 </html>
