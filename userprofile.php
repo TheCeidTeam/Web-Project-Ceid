@@ -109,7 +109,7 @@ footer {
   <br><a href="#">Contact</a>
 </div>
 
-<span style="color:white;font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+<span style="color:white;font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
 
 
 
