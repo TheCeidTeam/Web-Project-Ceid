@@ -1,6 +1,6 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: #808080;
+    background-color: #808080;
 }
 header {
     background-color: #f16051;
@@ -12,41 +12,72 @@ header {
   }
 
   nav {
+    position: relative;
     -webkit-flex: 1;
     -ms-flex: 1;
     flex: 1;
     background: rgb(252, 251, 251);
-    padding: 100px;
+    padding: 300px;
     
   
   }
 
 
 .text{
-  position: relative;
+  position: absolute;
   color: #808080;
   top: 0;
   left: 0;
+  
+  
 
 }
 
 .btnsave {
   color:   #808080;
-  display: none;
+  /*display: none;*/
  
 }
 
 #btnProcess{
-  background-color: #f16051;
+  border-color: #f16051;
+  color:  black;
+  border-radius: 2px;
+  font-size: 17px;
+  border : 1px solid black;
+}
+#btnProcess:hover {
+  background:#f16051;
   color: white;
-  border-radius: 4px;
-  font-size: 20px;
 }
 
 #btnSave{
-  background-color: #f16051;
+  border-color: #f16051;
+  color:  black;
+  border-radius: 2px;
+  font-size: 17px;
+  border : 1px solid black;
+}
+#btnSave:hover {
+  background:#f16051;
   color: white;
-  border-radius: 4px;
-  font-size: 20px;
+}
+#btnUpload{
+  border-color: #f16051;
+  color:  black;
+  border-radius: 2px;
+  font-size: 17px;
+  border : 1px solid black;
+}
+#btnUpload:hover {
+  background:#f16051;
+  color: white;
+}
+
+footer {
+  background-color: #808080;
+  padding: 10px;
+  text-align: left;
+  color: white;
 }
 
