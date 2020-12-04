@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>CSS Template</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the header */
+header {
+  background-color: #f16051;
+  padding: 30px;
+  text-align: center;
+  font-size: 35px;
+  color: white;
+}
+
+/* Container for flexboxes */
+section {
+  display: -webkit-flex;
+  display: flex;
+}
+
+/* Style the navigation menu */
+nav {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  background: #ccc;
+  padding: 20px;
+}
+
+/* Style the list inside the menu */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* Style the content */
+article {
+  -webkit-flex: 3;
+  -ms-flex: 3;
+  flex: 3;
+  background-color: #f1f1f1;
+  padding: 250px;
+}
+
+/* Style the footer */
+footer {
+  background-color: #777;
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+/* Style the DropDown Menu */
+.dropbtn {
+  background-color: #f16051;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.logoutLblPos{
+   
+   background-color: #ccc;
+   position:absolute;
+   right:20px;
+   top:20px;
+   }
+
+.dropdown-content a:hover {background-color: #C0C0C0;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #f16051;}
+
+/* Style the Logout Button */
+
+
+/* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
+@media (max-width: 650px) {
+  section {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+}
+</style>
+</head>
+<body>
+
+
+<header>
+  <h3>User interface</h3>
+</header>
+
+
+<form align="right" name="form1" method="post" action="logout.php">
+  <label class="logoutLblPos">
+  <input name="submit2" type="submit" id="submit2" value="log out">
+  </label>
+</form>
+
+<section>
+  <nav>
+	<div class="dropdown">
+    <button class="dropbtn">Options</button>
+     <div class="dropdown-content">
+       <ul>
+        <li><a href="#">Har upload</a></li>
+        <li><a href="#">Profile</a></li>
+        <li><a href="#">Visualize Data</a></li>
+      </ul>
+    </div>
+  </div>
+ </nav>
+  <article>
+    <h1>another place to put stuff</h1>
+    <p>Space to put some stuff</p>
+  </article>
+</section>
+<footer>
+  <p>Footer</p>
+</footer>
+
+</body>
+</html>
