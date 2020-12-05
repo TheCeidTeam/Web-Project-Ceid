@@ -15,7 +15,7 @@
 
   <script type="text/javascript">
   
-    
+ 
     var results="";
     
     
@@ -26,27 +26,35 @@ function domain_from_url(string1) {
     var match;
     string1=string1.toString();
     var result = string1.replace('http://','').replace('https://','').replace('www.','').split(/[/?#]/)[0];
-    var result = result.replace('files','').replace('static','').replace('','').split(/[/?#]/)[0];
+    result = result.replace('files','').replace('static','').replace('','').split(/[/?#]/)[0];
 
     
     return result;
 }
 
-    
+
+//const delay = new Promise( (resolve, reject) => {
+//    Start( () = > {
+//        loadEditor(param);
+//        resolve();
+//    }, 50);
+//});
+
+//delay.then( () => {
+//    loadFile();
+//});
     
  async function start()
     { 
       let [res1, res2] = await Promise.all([
             fetch('https://ipapi.co/json/').then(response => response.json()),
             //fetch('http://lslslslslslslslslslslslslslslsls.edns.ip-api.com/json').then(response => response.json()),
-        
+  //               latitude=res1.latitude;
+   //              longitude=res1.longitude;
         ]);
-      //console.log(res1) ;
-     results=results.concat("\n\n\nUser latitude:",res1.latitude);
-     results=results.concat("\nUser longitude:",res1.longitude);
-     console.log(results) ;
+      
+
     }
-    
 
     
   function loadFile() 
@@ -102,7 +110,7 @@ function domain_from_url(string1) {
         let lines = e.target.result;
         var newArr = JSON.parse(lines); 
         var entries = newArr.log.entries;
-
+      
     
     
     entries.forEach(inentries);
@@ -110,96 +118,138 @@ function domain_from_url(string1) {
 
         function inentries(obj)
     {
-                results=results.concat("\n\n\nStarted date Time:",obj.startedDateTime);
-                  results=results.concat("\nWait:",obj.timings.wait);
-                  results=results.concat("\nServer Ip Adress:",obj.serverIPAddress);
+ 
+      
+      var object1 = {};
+      
+      object1["StartedDateTime"] = obj.startedDateTime;
+      object1["Wait"] = obj.timings.wait;
+      object1["ServerIPAddress"] = obj.serverIPAddress;
+
+      object1["Status"] = obj.response.status;
+      object1["StatusText"] = obj.response.statusText;
+      
+     // if(latitude && longitude)
+   //     {
+    //  object1["Latitude"] = latitude;
+    //  object1["Longitude"] = longitude;
+    //    }
+      
 
 
                   if(obj.request.method)
                   {
-                        results=results.concat("\nMethod:",obj.request.method);
+                        object1["Method"] = obj.request.method;
                   }
+       else{
+         object1["Method"] = "Empty";
+       }
+      
 
                 if(obj.request.url)
                   {
 
                       let temp1=new URL(obj.request.url);
                       temp1=domain_from_url(temp1);
-                      //console.log(temp1);
-                      results=results.concat("\nRequest url:",temp1);
+                      object1["Request url"] = temp1;
+ 
                   }
+      else{
+         object1["Request url"] = "Empty";
+       }
 
 
 
-                head=obj.response.headers;
+           head=obj.response.headers;
            if(head.some(object=>object.name==="content-type"))
                    {
 
                       let obj = head.find(obj => obj.name == 'content-type');
-                      results=results.concat("\nContent Type:",obj.value);
+                      object1["Content Type"] = obj.value;
+
                    }
+      else{
+         object1["Content Type"] = "Empty";
+       }
 
 
            if(head.some(object=>object.name==="cache-control"))
                {
 
                   let obj = head.find(obj => obj.name == 'cache-control');
-                  results=results.concat("\ncache-control:",obj.value);
+                  object1["Cache-control"] = obj.value;
+ 
                }
+        else{
+         object1["Cache-control"] = "Empty";
+       }
+
 
            if(head.some(object=>object.name==="pragma"))
                {
 
                   let obj = head.find(obj => obj.name == 'pragma');
-                  results=results.concat("\npragma:",obj.value);
+                  object1["Pragma"] = obj.value;
                }
+        else{
+         object1["Pragma"] = "Empty";
+       }
 
 
            if(head.some(object=>object.name==="expires"))
                {
 
                   let obj = head.find(obj => obj.name == 'expires');
-                  results=results.concat("\nexpires:",obj.value);
+
+                  object1["Expires"] = obj.value;
+
                }
+         else{
+         object1["Expires"] = "Empty";
+       }
 
 
            if(head.some(object=>object.name==="age"))
                {
 
                   let obj = head.find(obj => obj.name == 'age');
-                  results=results.concat("\nAge:",obj.value);
+
+                  object1["Age"] = obj.value;
                }
+        else{
+         object1["Age"] = "Empty";
+       }
 
 
            if(head.some(object=>object.name==="last-modified"))
                {
 
-                    let obj = head.find(obj => obj.name == 'last-modified');
-                    results=results.concat("\nLast-modified:",obj.value);
+                    let obj = head.find(obj => obj.name == "last-modified");
+                    object1["Last-modified"] = obj.value;
                }
-             if(head.some(object=>object.name==="host"))
+       else{
+         object1["Last-modified"] = "Empty";
+       }
+           if(head.some(object=>object.name==="host"))
                {
-
                       let obj = head.find(obj => obj.name == 'host');
-                      results=results.concat("\nHost:",obj.value);
+
+                      object1["Host"] = obj.value;
                }
-
-                if(obj.response.expires)
-                  {
-                      results=results.concat("",obj.expires);
-                  }
+       else{
+         object1["Host"] = "Empty";
+       }
 
       
 
-      
-      
-        //document.getElementById("demo").innerHTML = entries.startedDateTime;
-
+console.log(object1);
       } 
- //console.log("END OF RESULTS");
+
       
   }
  }
+
+
 
     
 
