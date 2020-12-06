@@ -33,35 +33,27 @@ function domain_from_url(string1) {
 }
 
 
-//const delay = new Promise( (resolve, reject) => {
-//    Start( () = > {
-//        loadEditor(param);
-//        resolve();
-//    }, 50);
-//});
 
-//delay.then( () => {
-//    loadFile();
-//});
     
  async function start()
     { 
       let [res1, res2] = await Promise.all([
             fetch('https://ipapi.co/json/').then(response => response.json()),
             //fetch('http://lslslslslslslslslslslslslslslsls.edns.ip-api.com/json').then(response => response.json()),
-  //               latitude=res1.latitude;
-   //              longitude=res1.longitude;
+                 
         ]);
-      
+      latitude=res1.latitude
+      longitude=res1.longitude
+      //console.log("big fsafifas")
 
     }
 
     
-  function loadFile() 
+  async function loadFile() 
 {
     
   
-    start();
+    const data = await start();
     var input, file, fr;
     var i=0;
     
@@ -128,12 +120,10 @@ function domain_from_url(string1) {
 
       object1["Status"] = obj.response.status;
       object1["StatusText"] = obj.response.statusText;
-      
-     // if(latitude && longitude)
-   //     {
-    //  object1["Latitude"] = latitude;
-    //  object1["Longitude"] = longitude;
-    //    }
+
+      object1["Latitude"] = latitude;
+      object1["Longitude"] = longitude;
+        
       
 
 
@@ -251,10 +241,6 @@ console.log(object1);
 
 
 
-    
-
-    
-    
     
 </script>
 
