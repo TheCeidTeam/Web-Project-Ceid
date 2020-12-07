@@ -28,7 +28,7 @@ $('#submitButton').on('click', function (e) {
               window.location.href = "../php/user.php";
             }
             else if (datas == "admin") {
-                //window.location.href = "/admin/statistics.php";
+                window.location.href = "../php/admin.php";
                 console.log("geia")
 
             }

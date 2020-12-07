@@ -1,0 +1,129 @@
+body {
+  font-family: sans-serif !important;
+
+  color:  gray!important; 
+}
+.navbar{
+  background-color: #f16051!important;
+    color: white ;
+    height: 50px;
+    text-align: center !important;
+    font-size: 20px;
+    font-weight: 400;
+}
+#sidebar-wrapper {
+  background-color: gray!important;
+  color: white ;
+  height: 50px;
+  text-align: center !important;
+  font-size: 20px;
+  font-weight: 400;
+}
+.list-group-item {
+  background-color: transparent;
+  color: #fff;
+  }
+ 
+  .right  a{
+    display: inline-block;
+    color:white;	
+    margin-right: 0;
+  }
+  
+
+#sidebar-wrapper a{
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: white;
+  display: block;
+}
+#sidebar-wrapper a:hover {
+  background-color: 	rgb(208,208,208)!important;
+}
+
+  
+
+#sidebar-wrapper {
+  min-height: 100vh;
+  margin-left: -15rem;
+
+  
+}
+
+#sidebar-wrapper .sidebar-heading {
+  padding: 0.875rem 1.25rem;
+  font-size: 1.2rem;
+}
+
+#sidebar-wrapper .list-group {
+  width: 15rem;
+}
+
+#page-content-wrapper {
+  min-width: 100vw;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+  margin-left: 0;
+}
+
+@media (min-width: 768px) {
+  #sidebar-wrapper {
+    margin-left: 0;
+  }
+
+  #page-content-wrapper {
+    min-width: 0;
+    width: 100%;
+  }
+
+  #wrapper.toggled #sidebar-wrapper {
+    margin-left: -15rem;
+  }
+}
+
+#btnProcess{
+  border-color: #f16051;
+  color:  black;
+  border-radius: 2px;
+  font-size: 17px;
+  border : 1px solid black;
+}
+#btnProcess:hover {
+  background:#f16051;
+  color: white;
+}
+
+#btnSave{
+  border-color: #f16051;
+  color:  black;
+  border-radius: 2px;
+  font-size: 17px;
+  border : 1px solid black;
+}
+#btnSave:hover {
+  background:#f16051;
+  color: white;
+}
+#btnUpload{
+  border-color: #f16051;
+  color:  black;
+  border-radius: 2px;
+  font-size: 17px;
+  border : 1px solid black;
+}
+#btnUpload:hover {
+  background:#f16051;
+  color: white;
+}
+
+footer {
+  background-color: #808080;
+  padding: 10px;
+  text-align: left;
+  color: white;
+}
+.btnsave{
+  display: none;
+}

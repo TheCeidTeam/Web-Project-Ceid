@@ -1,3 +1,16 @@
+<?php
+//session_start();
+//if (!isset($_SESSION['username'])) {
+  //  if (!isset($_SESSION['type'])) {
+	//header('Location: ../index.html');
+    //exit();
+    //}
+//}
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,7 +27,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css">
 
   <!-- Custom styles for this template -->
-  <link rel="stylesheet" href="../css/user-css.css">
+  <link rel="stylesheet" href="../css/admin-css.css">
 
 </head>
 
@@ -23,17 +36,17 @@
   <div class="d-flex toggled" id="wrapper">
 
     <!-- Sidebar -->
-    <div class="" id="sidebar-wrapper">
+    <div class=" border-right" id="sidebar-wrapper">
       <div class="sidebar-heading"><b>MENU</b></div>
       <div class="list-group " id="list">
       <br>
-        <a href="harprocess.php" class="list-group-item"">Επεξεργασία HAR αρχείου</a>
+        <a href="admin.php" class="list-group-item"">Κεντρική Σελίδα</a>
         
-        <a href="#" class="list-group-item"">Services</a>
+        <a href="analyze-time.php" class="list-group-item"">Ανάλυση χρόνων απόκρισης σε αιτήσεις </a>
         
-        <a href="#" class="list-group-item"">Clients</a>
+        <a href="analyze-http.php" class="list-group-item"">Ανάλυση κεφαλίδων HTTP</a>
        
-        <a href="#" class="list-group-item"">Contact</a>
+        <a href="visualization.php" class="list-group-item"">Οπτικοποίηση δεδομένων</a>
       </div>
     </div>
     <!-- /#sidebar-wrapper -->
@@ -75,6 +88,9 @@
       $("#wrapper").toggleClass("toggled");
     });
   </script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/js/bootstrap.min.js"></script>
+<script src="../js/admin.js"></script>
 
 </body>
 
