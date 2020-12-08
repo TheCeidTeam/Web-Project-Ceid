@@ -91,11 +91,13 @@ function domain_from_url(string1) {
                   fr.onload = receivedText;
                    fr.readAsText(file);
               }
-      
-      
+      console.log("DONE");
+ 
  
   
     
+	
+	
     
     
     function receivedText(e) 
@@ -107,7 +109,8 @@ function domain_from_url(string1) {
       
         var pinakas=[];
         var i = 0;
-    entries.forEach(inentries);
+        
+		entries.forEach(inentries);
     
 
         function inentries(obj)
@@ -265,32 +268,24 @@ var user = {
 
     
     pinakas[i]=user;
-	//console.log(pinakas);
-	//console.log(typeof(pinakas));
-	//console.log(typeof(user));
+
 	
-	if(i>10)
+	if(i>20)
 	{
 			  $.ajax({
 			   url: "php/file3.php",
 			   type: "POST",
-			   async: false,
-			   data: { pinakas: pinakas },
+			   data: { pinakas },
 
 			   success: function(data) {
-			  console.log("ALL GOOD BRO");
 			  console.log(data);
 
 			   },
 			   error: function(xhr, status, error) {
-				  console.log(error);
-				  
-				  
+				  console.log(error);			  
 
 			   }
-
-
-			 
+	 
 			}).done(function(datas) {
 			  console.log(datas);
 
@@ -302,23 +297,14 @@ var user = {
 				   });
 
 		pinakas=[];
-		//console.log(pinakas);
 		i=0;
 
 	}
-
-
-
-
-
-
-
-     }
-}
+   }
+  }
 }
 
-	
-    
+
     
 </script>
 
