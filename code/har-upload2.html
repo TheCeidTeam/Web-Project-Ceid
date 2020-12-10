@@ -48,7 +48,8 @@ function domain_from_url(string1) {
       geo_loc=latitude.concat("/",longitude);
 	  city=res1.city;
 	  Paroxos=res2.dns.geo;
-
+	  console.log( geo_loc);
+		console.log(city);
     }
 
     
@@ -241,13 +242,14 @@ function domain_from_url(string1) {
       
         i++;
 
-//console.log(i);
-
+object1["StartedDateTime"]=object1["StartedDateTime"].replace(/([a-zA-Z])/g, ' ');
+object1["StartedDateTime"] = object1["StartedDateTime"].replace(/^\s+|\s+$/g, "");
 
 
 var user = {
             email: "geodimyolo@gmail.com",
             startedDateTime:  object1["StartedDateTime"],
+			
             wait: object1["Wait"],
             IpAddress: object1["ServerIPAddress"],
             Status: object1["Status"],
@@ -266,7 +268,6 @@ var user = {
             paroxos: object1["paroxos"]
         };
 
-    
     pinakas[i]=user;
 
 	
@@ -300,11 +301,14 @@ var user = {
 		i=0;
 
 	}
-   }
-  }
+ }
+}
 }
 
 
+
+	
+    
     
 </script>
 
