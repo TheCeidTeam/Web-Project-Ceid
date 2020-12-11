@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `data` (
   `city` VARCHAR(255),
   `geoloc` VARCHAR(255),
   `dataid` VARCHAR(255),
-  `datadate` DATE
+  `datadate` DATE,
   
   PRIMARY KEY (`startedDateTime`, `useremail`),
    CONSTRAINT `actuser` FOREIGN KEY (`useremail`) REFERENCES `users`(`email`)
