@@ -37,6 +37,9 @@ CREATE TABLE IF NOT EXISTS `data` (
   `paroxos` VARCHAR(255),
   `city` VARCHAR(255),
   `geoloc` VARCHAR(255),
+  `dataid` VARCHAR(255),
+  `datadate` DATE
+  
   PRIMARY KEY (`startedDateTime`, `useremail`),
    CONSTRAINT `actuser` FOREIGN KEY (`useremail`) REFERENCES `users`(`email`)
     ON DELETE CASCADE ON UPDATE CASCADE
