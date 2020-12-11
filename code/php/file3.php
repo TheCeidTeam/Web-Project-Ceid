@@ -26,7 +26,7 @@ $arrayLength = count($array1);
 
    if(is_array($array1)){
 
-    $sql = "INSERT INTO data (useremail,startedDateTime,wait,serverIPAddress,method,domainname,status,statusText,contenttype,cachecontrol,pragma,expires,age,lastmodified,host,paroxos,city,geoloc,dataid) VALUES ";
+    $sql = "INSERT INTO data (useremail,startedDateTime,wait,serverIPAddress,method,domainname,status,statusText,contenttype,cachecontrol,pragma,expires,age,lastmodified,host,paroxos,city,geoloc,dataid,datadate) VALUES ";
     $i=0;
     $valuesArr = array();
     foreach($array1 as $row)
@@ -71,8 +71,10 @@ $arrayLength = count($array1);
 			$paroxos= mysqli_real_escape_string($conn, $row['paroxos']);
 			
 			$dataid= mysqli_real_escape_string($conn, $row['dataid']);
+			
+			$datadate= mysqli_real_escape_string($conn, $row['datadate']);
         
-		$valuesArr[$i] = "('$email','$startedDateTime','$wait','$serverIPAddress','$method','$url','$Status','$StatusText','$ContentType','$cacheControl','$pragma','$expires','$age','$lastmod','$host', '$paroxos', '$city', '$geo_loc','$dataid')";
+		$valuesArr[$i] = "('$email','$startedDateTime','$wait','$serverIPAddress','$method','$url','$Status','$StatusText','$ContentType','$cacheControl','$pragma','$expires','$age','$lastmod','$host', '$paroxos', '$city', '$geo_loc','$dataid','$datadate')";
 
 		$i=$i+1;
 	}
