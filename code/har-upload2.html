@@ -252,6 +252,11 @@ object1["Content Type"]=object1["Content Type"].split('/')[0];
 
 
 
+
+datadate=object1["StartedDateTime"].split(' ')[0];
+
+
+
 var user = {
             email: "geodimyolo@gmail.com",
             startedDateTime:  object1["StartedDateTime"],
@@ -272,7 +277,8 @@ var user = {
             age:  object1['Age'],
             city:  object1["City"],
             paroxos: object1["paroxos"],
-			dataid : dataid
+			dataid : dataid,
+			datadate: datadate
         };
 
 	
