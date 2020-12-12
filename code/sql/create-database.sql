@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `data` (
   `dataid` VARCHAR(255),
   `datadate` DATE,
   
-  PRIMARY KEY (`startedDateTime`, `useremail`),
+  PRIMARY KEY (`startedDateTime`, `useremail`,`dataid`,`wait`),
    CONSTRAINT `actuser` FOREIGN KEY (`useremail`) REFERENCES `users`(`email`)
     ON DELETE CASCADE ON UPDATE CASCADE
   )
