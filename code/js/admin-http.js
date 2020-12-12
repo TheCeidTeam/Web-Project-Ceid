@@ -95,17 +95,19 @@ $(() => {
 
            
             
-        }).done(function(data) {
-
+        }).done(function(data){
+            myData=JSON.parse(data);
             console.log(JSON.parse(data));
+            var count = Object.keys(myData).length;
+            console.log(Math.ceil(count/10));
+            
+            
 
 
 
 
-
-
-
+            
         });
-    });
+       });
     });
 });

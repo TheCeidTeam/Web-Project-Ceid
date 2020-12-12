@@ -48,7 +48,7 @@ if( isset($_POST['contenttype']) ){
         $sqlparoxos.=")";
     }
 
-  $sql="SELECT cachecontrol  FROM data ";
+  $sql="SELECT cachecontrol,lastmodified,expires  FROM data ";
 
   if( isset($_POST['contenttype']) || isset($_POST['paroxos']) ){
     $sql.="WHERE ";
@@ -63,10 +63,25 @@ if( isset($_POST['contenttype']) ){
 $arr=array();
 
 if($result = $conn->query($sql)){
+    
     while($row=mysqli_fetch_assoc($result)){
+    
+    if (strpos($row['cachecontrol'], 'max-age')){ 
     $arr[]=$row['cachecontrol'];
+    }else if($row['expires']!= 'Empty' && $row['expires']!= '0' && $row['lastmodified']!='Empty' ){
+        
+        $datetime1 = strtotime($row['expires']);
+$datetime2 = strtotime($row['lastmodified']);
+    $secs = $datetime1 - $datetime2;
+    if($secs>0){
+        $arr[]=$secs;
+    }
+    }
+
+    }
 }
-}
+
+
 echo json_encode($arr,JSON_FORCE_OBJECT);
 
     ?>
