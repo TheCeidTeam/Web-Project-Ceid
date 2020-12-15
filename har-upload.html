@@ -36,7 +36,8 @@ function domain_from_url(string1) {
 
     
  async function start()
-    { 
+    {
+       
       let [res1, res2] = await Promise.all([
             fetch('https://ipapi.co/json/').then(response => response.json()),
             fetch('http://lslslslslslslslslslslslslslslsls.edns.ip-api.com/json').then(response => response.json()),
@@ -46,18 +47,37 @@ function domain_from_url(string1) {
       longitude=res1.longitude.toString();
       geo_loc=latitude.concat("/",longitude);
 	  city=res1.city;
-	  //console.log(res2);
-	  //console.log(res2.dns.geo)
 	  Paroxos=res2.dns.geo;
-
+	  console.log( geo_loc);
+		console.log(city);
     }
+    async function GetServerLocation(ip)
+    {
+       //string1="http://ip-api.com/json/";
+	   string1="https://freegeoip.app/json/"
+	   
+	   //var toReplace={'[' , ']'};
+	   ip=ip.replace('[','')
+	   ip=ip.replace(']','');
 
+	   target=string1 +ip;
+       	   
+	   let [res1] = await Promise.all([
+            fetch(target).then(response => response.json()),
+                 
+        ]);
+
+      S_latitude=res1.latitude.toString();
+      S_longitude=res1.longitude.toString();
+	  server_loc=S_latitude+ ',' +S_longitude
+      
+	return server_loc;
+    }
     
   async function loadFile() 
 {
-    
-  
-    const data = await start();
+    var IpDb = {};
+    const data1 = await start();
     var input, file, fr;
     var i=0;
     
@@ -93,11 +113,13 @@ function domain_from_url(string1) {
                   fr.onload = receivedText;
                    fr.readAsText(file);
               }
-      
-      
+      console.log("DONE");
+ 
  
   
     
+	
+	
     
     
     function receivedText(e) 
@@ -107,27 +129,43 @@ function domain_from_url(string1) {
         var newArr = JSON.parse(lines); 
         var entries = newArr.log.entries;
       
+        var pinakas=[];
+        var i = 0;
+		var dataid=0;
+        
+		entries.forEach(inentries);
     
-    
-    entries.forEach(inentries);
 
-
-        function inentries(obj)
+      async  function inentries(obj)
     {
- 
+      
+	  
       
       var object1 = {};
       
       object1["StartedDateTime"] = obj.startedDateTime;
       object1["Wait"] = obj.timings.wait;
       object1["ServerIPAddress"] = obj.serverIPAddress;
-
+	  
+	  if( obj.serverIPAddress in IpDb)
+	  {
+		console.log("ALREADY HAVE IT");
+		geo_loc=IpDb[obj.serverIPAddress]
+	  }
+	  else
+	  {
+	  console.log("dont have it,gonna fetch");
+	  const server_loc = await GetServerLocation(obj.serverIPAddress);
+	  IpDb[obj.serverIPAddress]=server_loc;
+	  }
+	  console.log(IpDb);
+	  
       object1["Status"] = obj.response.status;
       object1["StatusText"] = obj.response.statusText;
 
       object1["Geo_loc"] = geo_loc;
       object1["City"] = city;
-	  object1["paroxos"] = Paroxos;
+	    object1["paroxos"] = Paroxos;
 	  
         
       
@@ -237,25 +275,85 @@ function domain_from_url(string1) {
        }
 
       
+        i++;
+		dataid++;
 
-console.log(object1);
+//Editing fields 
 
-
-
-$.ajax({
-   url: 'file.php',
-   type: 'post',
-   data: {age:object1["Age"],geo_loc:object1["Geo_loc"],city: object1["City"]},
-   success: function(response){
-
-   }
-});
+object1["StartedDateTime"]=object1["StartedDateTime"].replace(/([a-zA-Z])/g, ' ');
+object1["StartedDateTime"] = object1["StartedDateTime"].replace(/^\s+|\s+$/g, "");
+object1["Content Type"]=object1["Content Type"].split('/')[0];
 
 
 
-       }
-     }
+
+datadate=object1["StartedDateTime"].split(' ')[0];
+
+
+
+var user = {
+            email: "geodimyolo@gmail.com",
+            startedDateTime:  object1["StartedDateTime"],
+			
+            wait: object1["Wait"],
+            IpAddress: object1["ServerIPAddress"],
+            Status: object1["Status"],
+            StatusText : object1["StatusText"],
+            geo_loc: object1["Geo_loc"],
+            method:  object1["Method"],
+            url: object1["Request url"],
+            cacheControl:object1["Cache-control"],
+            ContentType: object1["Content Type"],
+            pragma: object1["Pragma"],
+            expires: object1["Expires"] ,
+            lastmod:object1["Last-modified"],
+            host: object1["Host"],
+            age:  object1['Age'],
+            city:  object1["City"],
+            paroxos: object1["paroxos"],
+			dataid : dataid,
+			datadate: datadate,
+			server_loc:server_loc
+        };
+
+    pinakas[i]=user;
+
+	
+	if(i>20)
+	{
+			  $.ajax({
+			   url: "php/file3.php",
+			   type: "POST",
+			   data: { pinakas },
+
+			   success: function(data) {
+			  console.log(data);
+
+			   },
+			   error: function(xhr, status, error) {
+				  console.log(error);			  
+
+			   }
+	 
+			}).done(function(datas) {
+			  console.log(datas);
+
+
+				   }).fail(function(datas) {
+			  console.log(datas);
+
+
+				   });
+
+		pinakas=[];
+		i=0;
+
+	}
+ }
 }
+}
+
+
 
 	
     
