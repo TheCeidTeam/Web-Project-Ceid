@@ -20,7 +20,7 @@
     
 function domain_from_url(string1) {
     
-	string1=string1.hostname;
+    string1=string1.hostname;
     var result;
     var match;
     string1=string1.toString();
@@ -34,7 +34,7 @@ function domain_from_url(string1) {
 
 
     
- async function start()
+ async function start() //get Paroxos,city,geo_loc for user
     {
        console.log("IN START");
       let [res1, res2] = await Promise.all([
@@ -57,9 +57,59 @@ function domain_from_url(string1) {
 }
 	
 	
+	async function geo_locs(entries,Ips,IpDb) //get geolocs function
+	{
+	for (obj of entries)
+		{
+			
+			
+			ip=obj.serverIPAddress;
+
+
+			ip=ip.replace('[','');
+			ip=ip.replace(']','');
+		 
+		 if(!(Ips.some(object=>object===ip)) && ip!="") //IF we dont have Ip go fetch its geo_loc
+		 {  
+			
+			
+			Ips.push(ip);
+			
+			string1="https://freegeoip.app/json/"
+			target=string1 +ip;
+			
+			
+			
+
+				console.log("fetching nowww");
+				
+				const response= await fetch(target)
+				.then(function(response) { return response.json(); })
+				.then(json=> {
+
+				  lat=json.latitude;
+				  lon=json.longitude;
+				  server_geo_loc=lat + ',' + lon;
+				  ip1=json.ip;
+				  
+				  
+				  IpDb[ip1]=geo_loc; //added geolocation to IpDb
+
+				  return ;
+				  
+				 
+				
+				}).catch(function(error) {
+        console.log(error)});
 	
-	
-	
+	}
+}
+	var values={}
+	values['IpDb']=IpDb;
+	values['Ips']=Ips;
+
+	return values;
+}	
 	
 
 
@@ -70,12 +120,12 @@ function domain_from_url(string1) {
    function loadFile() 
 {
 	
-	var flag=0;
+    var flag=0;
     var IpDb = {};
     var Ips=[];
     var geo_loc;
-	var city;
-	var Paroxos;
+    var city;
+    var Paroxos;
 	
     var input, file, fr;
     var i=0;
@@ -129,77 +179,35 @@ function domain_from_url(string1) {
 		var i = 0;
 		var dataid=0;
         const temp=await start();
-		console.log(temp);
+		const values=await geo_locs(entries,Ips,IpDb);
+		IpDb=values["IpDb"];
+		Ips=values["Ips"];
+		
+		//console.log("\n\nI GOT");
+		//console.log(values);
+		//console.log(temp);
+		
 		city=temp['city'];
 		Paroxos=temp['Paroxos'];
 		geo_loc=temp['geo_loc'];
 		
 		//entries.forEach(inentries);
-		for (obj of entries)
-		{
-			
-			
-			ip=obj.serverIPAddress;
-
-
-			ip=ip.replace('[','');
-			ip=ip.replace(']','');
-		 
-		 if(!(Ips.some(object=>object===ip)) && ip!="") //IF we dont have Ip go fetch its geo_loc
-		 {  
-			
-			
-			Ips.push(ip);
-			
-			string1="https://freegeoip.app/json/"
-			target=string1 +ip;
-			
-			console.log("GOING IN");
-			
-				//const data1 = start(); 
-				//await data1;
-				//console.log("fetching nowww");
-				
-				const response= fetch(target)
-				.then(function(response) { return response.json(); })
-				.then(json=> {
-				  //console.log(json);
-				  lat=json.latitude;
-				  lon=json.longitude;
-				  server_geo_loc=lat + ',' + lon;
-				  ip1=json.ip;
-				  
-				  
-				  IpDb[ip1]=geo_loc; //added geolocation to IpDb
-				  //console.log(ip1);
-				  //console.log(IpDb);
-				  
-				  
-				 
-				
-				}).catch(function(error) {
-        console.log(error)});
-	
-	}
-}
+		
 	console.log("\n\n\n\n\n\n I GOT ALL THE IP'S LOCATIONS, CONTINUE WITH IPDS=");
 	console.log(IpDb);
 
 	for (obj of entries)
 		{
-			inentries(obj,Paroxos,city,geo_loc); //call INETRIES
+			inentries(obj,Paroxos,city,geo_loc,IpDb); //call INETRIES
 		}
 
 
-   function inentries(obj,Paroxs,City,geo_loc)
+   function inentries(obj,Paroxos,City,geo_loc,IpDb)
     {
-		//console.log("NEW LOOP STARTED");
-      
+		console.log("starting this user");
+		//console.log(IpDb);
 
       
-		 
-		 //console.log(IpDb);
-		//console.log("IM IN MAKE_SEND");
 		var object1 = {};
 	  
 	  
@@ -221,8 +229,6 @@ function domain_from_url(string1) {
 	  object1["paroxos"] = Paroxos;
 	  object1["server_geo_loc"]=IpDb[ip];
 	  
-	 // console.log(Paroxos);
-	  //console.log(city);
 	  
 	   
 
@@ -231,9 +237,9 @@ function domain_from_url(string1) {
                   {
                         object1["Method"] = obj.request.method;
                   }
-       else{
-         object1["Method"] = "Empty";
-       }
+				   else{
+					 object1["Method"] = "Empty";
+				   }
       
 
                 if(obj.request.url)
@@ -244,9 +250,9 @@ function domain_from_url(string1) {
                       object1["Request url"] = temp1;
  
                   }
-      else{
-         object1["Request url"] = "Empty";
-       }
+				  else{
+					 object1["Request url"] = "Empty";
+				   }
 
 
 
@@ -258,9 +264,9 @@ function domain_from_url(string1) {
                       object1["Content Type"] = obj.value;
 
                    }
-      else{
-         object1["Content Type"] = "Empty";
-       }
+				  else{
+					 object1["Content Type"] = "Empty";
+				   }
 
 
            if(head.some(object=>object.name==="cache-control"))
@@ -270,9 +276,9 @@ function domain_from_url(string1) {
                   object1["Cache-control"] = obj.value;
  
                }
-        else{
-         object1["Cache-control"] = "Empty";
-       }
+				else{
+				 object1["Cache-control"] = "Empty";
+			   }
 
 
            if(head.some(object=>object.name==="pragma"))
@@ -281,9 +287,9 @@ function domain_from_url(string1) {
                   let obj = head.find(obj => obj.name == 'pragma');
                   object1["Pragma"] = obj.value;
                }
-        else{
-         object1["Pragma"] = "Empty";
-       }
+				else{
+				 object1["Pragma"] = "Empty";
+			   }
 
 
            if(head.some(object=>object.name==="expires"))
@@ -294,9 +300,9 @@ function domain_from_url(string1) {
                   object1["Expires"] = obj.value;
 
                }
-         else{
-         object1["Expires"] = "Empty";
-       }
+				 else{
+				 object1["Expires"] = "Empty";
+			   }
 
 
            if(head.some(object=>object.name==="age"))
@@ -306,9 +312,9 @@ function domain_from_url(string1) {
 
                   object1["Age"] = obj.value;
                }
-        else{
-         object1["Age"] = "Empty";
-       }
+				else{
+				 object1["Age"] = "Empty";
+			   }
 
 
            if(head.some(object=>object.name==="last-modified"))
@@ -317,18 +323,18 @@ function domain_from_url(string1) {
                     let obj = head.find(obj => obj.name == "last-modified");
                     object1["Last-modified"] = obj.value;
                }
-       else{
-         object1["Last-modified"] = "Empty";
-       }
+			   else{
+				 object1["Last-modified"] = "Empty";
+			   }
            if(head.some(object=>object.name==="host"))
                {
                       let obj = head.find(obj => obj.name == 'host');
 
                       object1["Host"] = obj.value;
                }
-       else{
-         object1["Host"] = "Empty";
-       }
+			   else{
+				 object1["Host"] = "Empty";
+			   }
 
       
         i++; 	//INCREASE THE i COUNTER
@@ -370,16 +376,12 @@ var user = {
 
     pinakas[i]=user;
 		 
-	  console.log("THE IPDB IS NOW");
-	  console.log(IpDb);
 	  
 
 
 	if(i>20)
 	{		var cnt=0;
-			console.log(i);
-			console.log(cnt)
-			console.log(pinakas);
+			
 			for(cnt=1; cnt<20; cnt++)
 			{	
 		
@@ -398,7 +400,10 @@ var user = {
 					console.log("THE DATABASE HAS");
 					console.log(IpDb);
 
-					pinakas[cnt]['server_loc']="No_Ip";
+
+					
+
+					pinakas[cnt]['server_loc']="No_Ip"; //dont have ip to get geoloc
 				}
 			}
 			
