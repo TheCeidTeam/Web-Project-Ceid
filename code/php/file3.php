@@ -17,16 +17,14 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 
-
 $array1=$_POST['pinakas'];
 $arrayLength = count($array1);
 
 
 
-
    if(is_array($array1)){
 
-    $sql = "INSERT INTO data (useremail,startedDateTime,wait,serverIPAddress,method,domainname,status,statusText,contenttype,cachecontrol,pragma,expires,age,lastmodified,host,paroxos,city,geoloc,dataid,datadate) VALUES ";
+    $sql = "INSERT INTO data (useremail,startedDateTime,wait,serverIPAddress,method,domainname,status,statusText,contenttype,cachecontrol,pragma,expires,age,lastmodified,host,paroxos,city,geoloc,dataid,datadate,server_loc) VALUES ";
     $i=0;
     $valuesArr = array();
     foreach($array1 as $row)
@@ -74,12 +72,16 @@ $arrayLength = count($array1);
 			
 			$datadate= mysqli_real_escape_string($conn, $row['datadate']);
         
-		$valuesArr[$i] = "('$email','$startedDateTime','$wait','$serverIPAddress','$method','$url','$Status','$StatusText','$ContentType','$cacheControl','$pragma','$expires','$age','$lastmod','$host', '$paroxos', '$city', '$geo_loc','$dataid','$datadate')";
+			$server_loc=mysqli_real_escape_string($conn, $row['server_loc']);
+				
+				
+		$valuesArr[$i] = "('$email','$startedDateTime','$wait','$serverIPAddress','$method','$url','$Status','$StatusText','$ContentType','$cacheControl','$pragma','$expires','$age','$lastmod','$host', '$paroxos', '$city', '$geo_loc','$dataid','$datadate','$server_loc')";
 
 		$i=$i+1;
 	}
 	}
 
+	
 	$sql .= implode(',', $valuesArr);
     echo("\n\n");
 	echo("query sent");
