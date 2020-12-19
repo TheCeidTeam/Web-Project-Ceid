@@ -20,7 +20,7 @@
     
 function domain_from_url(string1) {
     
-    string1=string1.hostname;
+	string1=string1.hostname;
     var result;
     var match;
     string1=string1.toString();
@@ -34,7 +34,7 @@ function domain_from_url(string1) {
 
 
     
- async function start() //get Paroxos,city,geo_loc for user
+ async function start()
     {
        console.log("IN START");
       let [res1, res2] = await Promise.all([
@@ -93,7 +93,7 @@ function domain_from_url(string1) {
 				  ip1=json.ip;
 				  
 				  
-				  IpDb[ip1]=geo_loc; //added geolocation to IpDb
+				  IpDb[ip1]=server_geo_loc; //added geolocation to IpDb
 
 				  return ;
 				  
@@ -120,12 +120,12 @@ function domain_from_url(string1) {
    function loadFile() 
 {
 	
-    var flag=0;
+	var flag=0;
     var IpDb = {};
     var Ips=[];
     var geo_loc;
-    var city;
-    var Paroxos;
+	var city;
+	var Paroxos;
 	
     var input, file, fr;
     var i=0;
@@ -371,7 +371,7 @@ var user = {
             paroxos: object1["paroxos"],
 			dataid : dataid,
 			datadate: datadate,
-			server_loc:"empty"
+			server_loc:IpDb[ip]
         };
 
     pinakas[i]=user;
@@ -387,7 +387,7 @@ var user = {
 		
 		
 
-		pinakas[cnt]['server_loc']=IpDb[pinakas[cnt]['IpAddress']];
+		//pinakas[cnt]['server_loc']=IpDb[pinakas[cnt]['IpAddress']];
 				
 
 				if(!(pinakas[cnt]['server_loc']))
