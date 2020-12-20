@@ -87,10 +87,3 @@ $arrayLength = count($array1);
 	echo("query sent");
     mysqli_query($conn,$sql) or exit(mysqli_error($conn)); 
 }
-		     
-
-
-
-?>
-
-

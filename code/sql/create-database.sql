@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `data` (
   `geoloc` VARCHAR(255),
   `dataid` VARCHAR(255),
   `datadate` DATE,
-  
+  `server_loc`  VARCHAR(255),
   PRIMARY KEY (`startedDateTime`, `useremail`,`dataid`,`wait`),
    CONSTRAINT `actuser` FOREIGN KEY (`useremail`) REFERENCES `users`(`email`)
     ON DELETE CASCADE ON UPDATE CASCADE
