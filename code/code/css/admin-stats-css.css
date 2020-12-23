@@ -1,0 +1,120 @@
+body {
+    font-family: sans-serif !important;
+   
+    color: #f16051; 
+  }
+  .sidebar-heading{
+   padding-top: auto;
+
+
+  }
+  #mytable{
+    margin-left: 45%;
+    margin-right: 30%;
+    
+  }
+   #mychart2{
+    margin-left: 30%;
+    margin-right: 30%;
+    
+      height: 10%!important;
+      width: 30%!important;
+  }
+  #mychart,#mychart1,#mychart3,#mychart4,#mychart5 {
+    margin-left: 25%;
+    margin-right: 30%;
+    
+      border: 1px solid black;
+      height: 40%!important;
+      width: 50%!important;
+  }
+  .navbar{
+    background-color: #f16051!important;
+      color: white ;
+      height: 50px;
+      width: 100%;
+      text-align: center !important;
+      font-size: 20px;
+      font-weight: 400;
+  }
+  #sidebar-wrapper {
+    background-color: gray!important;
+    color: white ;
+    height: 100%px;
+    text-align: center !important;
+    font-size: 20px;
+    font-weight: 400;
+    top:0;
+    bottom: 0;
+  }
+  .list-group-item {
+    background-color: transparent;
+    color: #fff;
+    }
+   
+    .right  a{
+      display: inline-block;
+      color:white;	
+      margin-right: 10;
+    }
+    
+#page-content-wrapper .container-fluid  p{
+  margin-left: 20%;
+  margin-right: 20%;
+}
+#page-content-wrapper .container-fluid  h1{
+  margin-left: 20%;
+  margin-right: 20%;
+}
+  #sidebar-wrapper a{
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+    display: block;
+    position: relative;
+  }
+  #sidebar-wrapper a:hover {
+    background-color: 	rgb(208,208,208)!important;
+  }
+  
+    
+  
+  #sidebar-wrapper {
+    min-height: 100vh;
+
+  
+    
+  }
+  
+  #sidebar-wrapper .sidebar-heading {
+    padding: 0.875rem 1.25rem;
+    font-size: 1.2rem;
+  }
+  
+  #sidebar-wrapper .list-group {
+    width: 15rem;
+  }
+  
+  #page-content-wrapper {
+    min-width: 100vw;
+  }
+  
+  #wrapper.toggled #sidebar-wrapper {
+    margin-left: 0;
+  }
+  
+  @media (min-width: 768px) {
+    #sidebar-wrapper {
+      margin-left: 0;
+    }
+  
+    #page-content-wrapper {
+      min-width: 0;
+      width: 100%;
+    }
+  
+    #wrapper.toggled #sidebar-wrapper {
+      margin-left: -15rem;
+    }
+  }
