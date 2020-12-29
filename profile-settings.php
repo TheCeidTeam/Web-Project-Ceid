@@ -66,14 +66,14 @@ session_start();
      <div class="rightbox">
         <div class="profile tabShow">
            <h1>Προσωπικές πληροφορίες</h1>
-           <h2>Ψευδωνυμο</h2> 
+           <h2>Ψευδώνυμο</h2> 
            <input type="text" class="input" id='username' value="<?php echo $_SESSION['username'] ?? 'default' ?>">
            <br>
            <span class="error_form" id="username_error_message"></span>
            <br>
            <span class="error_form" id="username_error_message2"></span>
            <br>
-           <h2>Κωδικος</h2> 
+           <h2>Κωδικός</h2> 
            <input type="password" class="input" id='password' value="<?php echo $_SESSION['password'] ?? 'default' ?>" >  <a class='icon' ><i id='icon' class="k fa fa-eye" aria-hidden="true"></i> </a>
            <br>
            <span class="error_form" id="password_error_message"></span>
@@ -86,7 +86,46 @@ session_start();
         </div> 
         <div class="stats tabShow">
            <h1>Στατιστικά</h1>
-           
+           <h2>
+           <?php
+            
+            require_once 'db_connect.php';
+            $conn = dbConnect();
+            if (!$conn) {
+              die('Could not connect: ' . mysql_error());
+            }
+            
+            $sql="SELECT  uploaddate FROM data WHERE username  = ? ORDER BY uploaddate desc";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param('s', $_SESSION['username']);
+            $stmt->execute();
+            $stmt->store_result();
+            $value = 'default';
+            if ($stmt->num_rows > 0) {
+              $stmt->bind_result($uploaddate);
+              $row = $stmt->fetch();
+              $value = $uploaddate;
+            }
+            echo "Ημερομηνία τελευταίας μεταφόρτωσης: " .$value ?? 'default';
+            $stmt -> free_result();
+            ?>
+            <br>
+            <br>
+            <?php
+            $sql="SELECT  * FROM data WHERE username  = ?";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param('s', $_SESSION['username']);
+            $stmt->execute();
+            $stmt->store_result();
+            $row_cnt = '0';
+            if ($stmt->num_rows > 0) {
+              $row_cnt = $stmt->num_rows;
+            }
+            echo "Πλήθος εγγραφών: " .$row_cnt;
+            $stmt -> free_result();
+            $conn->close();
+           ?>
+           </h2>
         </div> 
      </div>
     </div>
@@ -98,7 +137,7 @@ session_start();
   
   <!-- Bootstrap core JavaScript -->
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/js/bootstrap.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/js/bootstrap.min.js"></script>
 
   <!-- Menu Toggle Script -->
   <script>
@@ -283,12 +322,16 @@ $("#updateButton").on('click', (e) => {
                    
                     
                 }).done(function(datas) {
-                   console.log();
-                   //window.location.href = "profile-settings.php";
+                  if (datas = 'ok'){
+                    window.location.href = "profile-settings.php";
+                  }
+                  else{
+                    console.log(datas);
+                  }
+
                 }).fail(function() {
-                  
                   $("#username_error_message2").html("Username already exist")
-                  $("#username_error_message2").show();
+                    $("#username_error_message2").show();
                 });
 
 
