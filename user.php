@@ -29,9 +29,9 @@
       <div class="sidebar-heading"><b>MENU</b></div>
       <div class="list-group " id="list">
       <br>
-        <a href="harprocess.php" class="list-group-item"">Επεξεργασία HAR αρχείου</a>
+        <a href="harprocess2.php" class="list-group-item">Επεξεργασία HAR αρχείου</a>
         
-        <a href="#" class="list-group-item"">Services</a>
+        <a href="user-IPs.php" class="list-group-item">Heatmap</a>
         
         <a href="#" class="list-group-item"">Clients</a>
        

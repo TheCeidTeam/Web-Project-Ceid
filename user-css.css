@@ -1,12 +1,12 @@
 body {
   font-family: sans-serif !important;
 
-  color: #f16051; 
+  color: grey; 
 }
 
 
 .navbar{
-  background-color: #f16051!important;
+  background-color: #4F91B0!important;
     color: white ;
     height: 50px;
     text-align: center !important;
@@ -53,7 +53,7 @@ body {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color:#f16051!important;
+    background-color:#4F91B0!important;
     min-width: 160px;
     overflow: auto;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -77,7 +77,7 @@ body {
   }
   
   
-.dropdown-content a:hover {background-color: rgb(250, 128, 128);}
+.dropdown-content a:hover {background-color: #7799a8;}
 
   
 .show {display: block;}
