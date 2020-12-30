@@ -1,12 +1,16 @@
 body {
     font-family: sans-serif !important;
   
-    color: #f16051; 
+     
+    background-image: url("../header_image.png");
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-size: 100% 130%;
   }
 
 
 .navbar{
-    background-color: #f16051!important;
+    background-color:#4F91B0!important;
       color: white ;
       height: 50px;
       text-align: center !important;
@@ -41,13 +45,14 @@ body {
 .dropdown-content {
       display: none;
       position: absolute;
-      background-color:#f16051!important;
+      background-color:#4F91B0!important;
       min-width: 160px;
       overflow: auto;
       box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
       z-index: 1;
       font-size: 15px;
       text-align: start;
+      border-radius: 5px;
     }
     
   
@@ -60,7 +65,7 @@ body {
     
     
 .dropdown-content a:hover{
-     background-color: rgb(250, 128, 128);
+     background-color: #7799a8;
     }
 
     
@@ -68,13 +73,15 @@ body {
   
     
 .container-fluid{
-        background: gray;
+        background: white;
+        opacity : 90%;
+        border-radius: 5px;
         width: 640px;
         height: 450px;
         margin: 0 auto;
         position: relative;
         margin-top: 10%;
-        box-shadow: 10px 20px 30px rgba(10, 10, 10, 0.5);
+        box-shadow: 5px 12px 20px  grey;
       }
 
     
@@ -85,9 +92,10 @@ body {
         position: absolute;
         width: 15%;
         height: 110%;
-        background: #f16051;
-        box-shadow: 3px 3px 10px rgba(119, 119, 119, .5);
+        background: #4F91B0;
+        box-shadow: 2px 2px 9px grey;
         border: solid #fff;
+        border-radius: 10px;
       }
   
     
@@ -116,21 +124,27 @@ nav[role='sub'] a:hover{
         transition: all .5s ease-in;
       }
 
+
+
     
 h1{
-        font-family: "Montserrat",sans-serif;
+        font-family: 'Segoe UI', sans-serif;
         color: white;
         font-size: 1.2rem;
         margin-top: 40px;
         margin-bottom: 35px;
+        border: 4px #4F91B0;
+        border-bottom-style: solid;
+        border-radius: 3px;
+        width: 240px;
       }
 
     
 h2{
         color: white;
-        font-family: "Roboto",sans-serif;
-        text-transform: uppercase;
-        font-size: 8px;
+        font-family: 'Segoe UI', sans-serif;
+        
+        font-size: 13px;
         letter-spacing: 1px;
         margin-left: 2px;
         margin-top: 10px;
@@ -139,9 +153,9 @@ h2{
     
 input, p{
         border: 0;
-        border-bottom: 1px solid #f16051;
+        border-bottom: 2px solid #63b5db;
         width: 80%;
-        font-family: 'montserrat',sans-serif;
+        font-family: 'Segoe UI', sans-serif;
         font-size: .7em;
         padding: 7px 0;
         color: gray;
@@ -156,12 +170,24 @@ input, p{
         font-size: 15px;
         border: 0;
         color: #fff;
-        background: #f16051;
+        background: #09243E;
         padding: 7px 15px;
-        box-shadow: 8px 2px 4px 0px rgba(0,0,0,0.2);
+        box-shadow: 0 7px #666;
         cursor: pointer;
         margin-top: 15px;
       }
+
+.btn:hover{
+      color: #09243E;
+      background-color: #4F91B0; 
+      box-shadow: 0 7px #666;
+}
+
+
+.btn:active {
+      background-color:#4F91B0;
+      box-shadow: none;
+}
 
     
 .icon{

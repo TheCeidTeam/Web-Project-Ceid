@@ -1,0 +1,139 @@
+body {
+    font-family: sans-serif !important;
+  
+  }
+  
+  
+  .navbar{
+    background-color: #4F91B0!important;
+      color: white ;
+      height: 50px;
+      text-align: center !important;
+      font-size: 25px;
+      font-weight: 400;
+      
+  }
+  
+  
+  #sidebar-wrapper {
+    background-color: gray!important;
+    color: white ;
+    height: 50px;
+    text-align: center !important;
+    font-size: 20px;
+    font-weight: 400;
+  }
+  
+  
+  .list-group-item {
+    background-color: transparent;
+    color: #fff;
+    }
+   
+  
+  .dropdown-container  a{
+      display: inline-block;
+      color:white ;	
+      margin-right: 0;
+      }
+  
+    
+  .dropdown {
+      position: relative;
+      display: inline-block;
+      }
+  
+    
+  .dropdown a:hover{
+      cursor: pointer;
+      }
+    
+    
+  .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color:#4F91B0!important;
+      min-width: 160px;
+      overflow: auto;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+      font-size: 15px;
+      text-align: start;
+    }
+    
+    
+  .i{
+      font-size:25px;
+   
+    }
+  
+  
+  .dropdown-content a {
+      color: white;
+      padding: 6px 8px;
+      text-decoration: none;
+      display: block;
+    }
+    
+    
+  .dropdown-content a:hover {background-color:#7799a8;}
+  
+    
+  .show {display: block;}
+  
+  
+  #sidebar-wrapper a{
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+    display: block;
+  }
+  
+  
+  #sidebar-wrapper a:hover {
+    background-color: 	rgb(208,208,208)!important;
+  }
+  
+    
+  #sidebar-wrapper {
+    min-height: 100vh;
+    margin-left: -15rem;
+  }
+  
+  
+  #sidebar-wrapper .sidebar-heading {
+    padding: 0.875rem 1.25rem;
+    font-size: 1.2rem;
+  }
+  
+  
+  #sidebar-wrapper .list-group {
+    width: 15rem;
+  }
+  
+  
+  #page-content-wrapper {
+    min-width: 100vw;
+  }
+  
+  
+  #wrapper.toggled #sidebar-wrapper {
+    margin-left: 0;
+  }
+  
+  
+  @media (min-width: 768px) {
+    #sidebar-wrapper {
+      margin-left: 0;
+    }
+  
+    #page-content-wrapper {
+      min-width: 0;
+      width: 100%;
+    }
+  
+    #wrapper.toggled #sidebar-wrapper {
+      margin-left: -15rem;
+    }
+  }
