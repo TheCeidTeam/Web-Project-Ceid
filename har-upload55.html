@@ -20,12 +20,10 @@
     
 function domain_from_url(string1) {
     
-	string1=string1.hostname;
     var result;
-    var match;
+   
     string1=string1.toString();
-    var result = string1.replace('http://','').replace('https://','').replace('www.','').split(/[/?#]/)[0];
-    result = result.replace('files','').replace('static','').replace('','').split(/[/?#]/)[0];
+    var result = string1.replace('http://','').replace('https://','').split(/[/?#]/)[0];
 
     
     return result;
@@ -245,7 +243,7 @@ function domain_from_url(string1) {
                 if(obj.request.url)
                   {
 
-                      let temp1=new URL(obj.request.url);
+                      let temp1=obj.request.url;
                       temp1=domain_from_url(temp1);
                       object1["Request url"] = temp1;
  
