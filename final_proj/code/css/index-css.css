@@ -1,0 +1,66 @@
+body {
+    font-family: Helvetica  !important;
+    width: 100vw;
+    overflow: hidden;
+    color: #a1cdda ;
+    background: url("../img/img1.png")   ;
+    background-size: cover ;
+    text-align: center !important;
+
+}
+.col-sm-5 {
+    text-align: center !important;
+}
+
+.text {
+    font-size: 18px;
+    color: white;
+    
+}
+    .navbar-brand {
+        position: relative;
+        background-image: url("../img/tek2.png") !important ;
+        background-repeat: no-repeat;
+        height: 70px;
+        width: 200px;
+       
+      
+    }
+    
+nav{
+    background-color: #4f91b0!important;
+       color: white !important ;
+    height: 80px;
+    text-align: center !important;
+    font-size: 20px;
+    font-weight: 400;
+}
+nav a{
+    float: left;
+   
+}
+
+ 
+
+.row {
+    text-align: center !important;
+}
+button {
+    background: transparent!important;
+    border : 2px solid white !important;
+    padding: 10px 20px 30px 20px;
+    margin-top: 3%;
+    margin-left: 2%;
+    margin-right: 2%;
+    color: white !important;
+    width: 60%;
+}
+
+button:hover{
+    background: black !important;
+    opacity: 30%;
+}
+h3{
+    font-family: Brush Script MT     !important;
+    font-style: italic;
+}

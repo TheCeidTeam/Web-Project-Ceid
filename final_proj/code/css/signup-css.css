@@ -1,0 +1,116 @@
+body {
+    font-family: Helvetica  !important;
+    width: 100vw;
+    overflow: hidden;
+    color: #a1cdda ;
+    background: url("../img/img1.png")   ;
+    background-size: cover ;
+    text-align: center !important;
+    
+}
+#loginLink {
+    text-align: center;
+    color: rgb(100, 110, 126);
+    margin-bottom: 0.75em;
+}
+
+nav{
+    background-color: #4f91b0!important;
+    color: white !important ;
+ height: 80px;
+ text-align: center !important;
+ font-size: 20px;
+ font-weight: 400;
+}
+nav a{
+    float: left;
+   
+}
+#password{
+    margin-left: 5%;
+    width: 90%;
+    
+}
+#username{
+    margin-left: 5%;
+    width: 90%;
+    
+}
+#email{
+    margin-left: 5%;
+    width: 90%;
+    
+}
+#lastname{
+    margin-left: 5%;
+    width: 90%;
+    
+}
+#name{
+    margin-left: 5%;
+    width: 90%;
+    
+}
+button:hover{
+    opacity: 80%;
+}
+h3{
+    color:  #4f91b0!important;
+}
+.navbar-brand {
+    position: relative;
+    background-image: url("../img/tek2.png") !important ;
+    background-repeat: no-repeat;
+    height: 70px;
+    width: 200px;
+   
+  
+}
+.form-group{
+color: #4f91b0!important;
+
+}
+.btn{
+
+background-color: #4f91b0!important;
+
+}
+.error_form
+{
+	color: rgb(216, 15, 15);
+    font-size: 0.8rem;
+    font-family: Helvetica;
+}
+
+
+#wrongInput {
+    color: red;
+    display: none;
+    margin-bottom: 0.5em;
+    text-align: center !important;
+}
+.form{
+    background-color: white;
+    border:1px solid #4f91b0; 
+    
+    margin-bottom: 20%; 
+    -webkit-border-radius: 15px;
+    -webkit-box-shadow: 0 0 0 2px #4f91b0 inset;
+}
+.centered {
+    
+    display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 5%;
+    margin-left: 2%;
+  text-align: center;
+  }
+
+  .btn{
+
+    width: 40%;
+
+
+  }
+

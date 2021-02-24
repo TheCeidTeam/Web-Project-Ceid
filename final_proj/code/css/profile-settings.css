@@ -1,0 +1,246 @@
+body {
+    font-family: sans-serif !important;
+  
+    background: #a1cdda;
+    background-image: url("../img/copy1.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+     
+      color: black;
+  }
+
+
+.navbar{
+    background-color:#4F91B0!important;
+      color: white ;
+      height: 80px;
+      text-align: center !important;
+      font-size: 25px;
+      font-weight: 400;
+      }
+
+
+.dropdown-container  a{
+      display: inline-block;
+      color:white;	
+      margin-right: 0;
+      }
+  
+
+.fa {
+    color: white;
+    
+    }
+ 
+    
+.dropdown {
+      position: relative;
+      display: inline-block;
+      }
+
+    
+.dropdown a:hover{
+    cursor: pointer;
+    }
+    
+    
+.dropdown-content {
+      display: none;
+      position: absolute;
+      background-color:#4F91B0!important;
+      min-width: 160px;
+      overflow: auto;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+      font-size: 15px;
+      text-align: start;
+      border-radius: 5px;
+    }
+    
+  
+.dropdown-content a {
+      color: white;
+      padding: 6px 8px;
+      text-decoration: none;
+      display: block;
+    }
+    
+    
+.dropdown-content a:hover{
+     background-color: #7799a8;
+    }
+
+    
+.show {display: block;}
+  
+    
+.container-fluid{
+        background: white;
+        opacity : 80%;
+        border-radius: 5px;
+        width: 640px;
+        height: 450px;
+        margin: 0 auto;
+        position: relative;
+        margin-top: 10%;
+        box-shadow: 5px 12px 20px  grey;
+      }
+
+    
+.leftbox{
+        float: left;
+        top: -5%;
+        left: 5%;
+        position: absolute;
+        width: 15%;
+        height: 110%;
+        background: #4F91B0;
+        box-shadow: 2px 2px 9px grey;
+        border: solid #fff;
+        border-radius: 10px;
+      }
+  
+    
+nav[role='sub'] a{
+        list-style: none;
+        padding: 35px;
+        color: #fff;
+        font-size: 30px;
+        display: block;
+        transition: all .3s ease-in-out;
+      }
+
+#home{
+      font-size:  35px;
+}
+
+nav[role='sub'] a:hover{
+        cursor: pointer;
+        transform: scale(1.2);
+      }
+
+    
+.rightbox{
+        width: 60%;
+        margin-left: 27%;
+      }
+
+    
+.tabShow{
+        transition: all .5s ease-in;
+      }
+
+
+
+    
+h1{
+        
+        color: #4F91B0;
+        font-size: 1.2rem;
+        margin-top: 40px;
+        margin-bottom: 35px;
+        border: 4px #4F91B0;
+        border-bottom-style: solid;
+        border-radius: 3px;
+        width: 240px;
+      }
+
+    
+h2{
+        color: #4F91B0;
+        
+        
+        font-size: 13px;
+        letter-spacing: 1px;
+        margin-left: 2px;
+        margin-top: 10px;
+      }
+
+    
+input, p{
+        border: 0;
+        border-bottom: 2px solid #63b5db;
+        width: 80%;
+        
+        font-size: .7em;
+        padding: 7px 0;
+        color: gray;
+        outline: none;
+        background: white;
+      }
+
+    
+.btn{
+        font-family: 'roboto',sans-serif;
+        text-transform: uppercase;
+        font-size: 15px;
+        border: 0;
+        color: #fff;
+        background: #4F91B0;
+        padding: 7px 15px;
+        
+        cursor: pointer;
+        margin-top: 15px;
+      }
+
+.btn:hover{
+      opacity: 60%;
+      background-color: #4F91B0; 
+}
+
+
+.btn:active {
+      background-color:#4F91B0;
+      box-shadow: none;
+}
+
+    
+.icon{
+      
+      transition: all .3s ease-in-out;
+      background-color: white;
+      border-radius: 15px;
+      font-size: 20px;
+      
+      
+    }
+    #icon{
+      color: #4F91B0;
+    }
+
+    
+.icon:hover{
+        cursor: pointer;
+        transform: scale(1.2);
+      }
+
+    
+.home:hover{
+      cursor: pointer;
+      transform: scale(1.2);
+    
+    }
+
+
+span
+{
+      top: 12px;
+      color: white;
+      font-size: 0.8rem;
+      font-family: Helvetica;
+    }
+    
+    #username_error_message,#username_error_message2{
+      color: red;
+    }
+    #password_error_message,#password_error_message1,#password_error_message2,#password_error_message3{
+      color: red;
+    }
+
+    
+
+
+    
